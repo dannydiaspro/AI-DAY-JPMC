@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Microsoft AI Day @ JPMC · Plano, TX</title>
+<meta name="description" content="Microsoft AI Day at the JPMorgan Chase Plano office: White Glove Sessions, Copilot Pulse feature demos and Copilot Clinic hands-on help.">
+<style>
+@font-face { font-family: 'Selawik'; src: url(assets/Selawik-Regular.ttf); font-weight: 400; }
+@font-face { font-family: 'Selawik'; src: url(assets/Selawik-Bold.ttf); font-weight: 600 800; }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { font-family: 'Segoe UI', 'Selawik', Arial, sans-serif; color: #31373D; background: #F7F6F3; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+a { color: inherit; text-decoration: none; }
+.page { position: relative; overflow: hidden; width: 1920px; height: 1080px; padding: 60px 72px; display: grid; grid-template-columns: minmax(0, 1fr) 760px; gap: 64px; background: #F7F6F3; }
+.page > .left, .page > .right { position: relative; z-index: 2; }
+.map { position: absolute; z-index: 0; pointer-events: none; }
+.star { position: absolute; z-index: 1; transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; pointer-events: none; }
+.star span { margin-top: 2px; font-size: 20px; font-weight: 700; letter-spacing: 4px; color: #936845; }
+
+.left { display: flex; flex-direction: column; }
+.brandrow { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+.logos { display: flex; align-items: flex-start; gap: 26px; }
+.mslogo { height: 44px; display: block; }
+.sep { width: 1.5px; height: 44px; background: #B9AE9F; align-self: center; }
+.jpm { height: 43px; margin-top: 7px; display: block; }  /* cap height and baseline matched to the Microsoft wordmark */
+.pill-date { display: inline-flex; align-items: center; gap: 12px; margin-left: 12px; background: #FFFFFF; border: 1.5px solid #CDBBA7; color: #31373D; font-size: 25px; font-weight: 700; padding: 14px 28px; border-radius: 999px; white-space: nowrap; }
+
+.signals { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+.sig { display: inline-flex; align-items: center; gap: 12px; border-radius: 999px; font-size: 22px; font-weight: 700; padding: 14px 24px; white-space: nowrap; }
+.sig-dark { background: #31373D; color: #FFFFFF; }
+.sig-bronze { background: #936845; color: #FFFFFF; }
+.sig-line { background: #FFFFFF; border: 1.5px solid #CDBBA7; color: #31373D; }
+.kicker { margin: 28px 0 0 0; font-size: 20px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: #936845; }
+h1 { margin: 8px 0 0 0; font-size: 94px; line-height: 1.0; font-weight: 700; letter-spacing: -3px; color: #31373D; }
+h1 .b { color: #936845; }
+.lede { margin: 18px 0 0 0; font-size: 25px; line-height: 1.5; color: #5A5F66; max-width: 960px; }
+
+.eyebrow { font-size: 17px; font-weight: 700; letter-spacing: 3.5px; text-transform: uppercase; color: #936845; margin: 0 0 8px 0; }
+.explore { margin-top: 22px; margin-bottom: 22px; }
+.chips { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.chip { display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.94); border: 2px solid #C2AC94; border-radius: 999px; padding: 9px 20px 9px 10px; font-size: 22px; color: #31373D; box-shadow: 0 3px 10px rgba(49,55,61,0.08); }
+.chip img, .chip .ic { width: 36px; height: 36px; display: block; flex: none; }
+.chip .ic { border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+
+.where { position: relative; z-index: 2; margin-top: auto; display: grid; grid-template-columns: 72px minmax(0, 1fr) auto; align-items: center; gap: 22px; background: #31373D; color: #FAF8F4; border-radius: 22px; padding: 20px 26px 20px 20px; }
+.pin { width: 72px; height: 72px; border-radius: 18px; background: #936845; display: flex; align-items: center; justify-content: center; }
+.where .k { font-size: 16px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #D2B79C; margin: 0; }
+.where .v { font-size: 28px; font-weight: 700; margin: 2px 0 0 0; color: #FFFFFF; }
+.where .addr { font-size: 22px; margin: 2px 0 0 0; color: #D9DCE0; }
+.maps { font-size: 16px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #F1E7DB; border: 1.5px solid #D2B79C; border-radius: 999px; padding: 11px 18px; white-space: nowrap; }
+
+.who { display: grid; grid-template-columns: 1fr 1fr 150px; gap: 40px; margin-top: 22px; }
+.who p.t { margin: 0; font-size: 22px; line-height: 1.45; color: #4A4F55; }
+
+.right { display: flex; flex-direction: column; gap: 24px; }
+.glance { background: #31373D; color: #FAF8F4; border-radius: 28px; padding: 38px 44px 30px; position: relative; overflow: hidden; }
+.glance::after { content: ""; position: absolute; right: -110px; top: -110px; width: 300px; height: 300px; border-radius: 50%; border: 2px solid rgba(147,104,69,0.7); }
+.glance .eyebrow { color: #D2B79C; }
+.glance h2 { margin: 0 0 18px 0; font-size: 48px; line-height: 1.05; font-weight: 700; letter-spacing: -1px; color: #FFFFFF; }
+.slot { display: grid; grid-template-columns: 150px minmax(0, 1fr) auto; align-items: center; gap: 20px; padding: 18px 0; border-top: 1px solid rgba(250,248,244,0.16); }
+.slot .time { font-size: 28px; font-weight: 700; color: #D2B79C; }
+.slot .name { font-size: 26px; font-weight: 700; color: #FFFFFF; }
+.slot .desc { font-size: 18px; color: #C9CDD2; margin-top: 2px; line-height: 1.35; }
+.agenda { position: relative; display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; padding: 8px 16px 8px 14px; border-radius: 999px; background: #D2B79C; color: #2A2F34; font-size: 16px; font-weight: 700; white-space: nowrap; box-shadow: 0 4px 14px rgba(0,0,0,.25); }
+.agenda .cursor { position: absolute; right: -22px; bottom: -20px; width: 34px; height: 34px; filter: drop-shadow(0 3px 4px rgba(0,0,0,.35)); }
+.agenda .ripple { position: absolute; right: -6px; bottom: -4px; width: 18px; height: 18px; border-radius: 50%; border: 2px solid rgba(255,255,255,.85); }
+.slot .tagp { font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 9px 14px; border-radius: 999px; border: 1.5px solid #D2B79C; color: #F1E7DB; white-space: nowrap; }
+
+.cta { flex: 1; background: linear-gradient(135deg, #936845 0%, #7A5536 100%); color: #FFFFFF; border-radius: 28px; padding: 32px 36px 32px 40px; display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 30px; align-items: center; }
+.cta .eyebrow { color: #F1E7DB; }
+.cta h3 { margin: 0; font-size: 46px; line-height: 1.05; font-weight: 700; letter-spacing: -1px; }
+.cta p { margin: 12px 0 0 0; font-size: 21px; line-height: 1.45; color: #F7EFE6; }
+.host { margin-top: 16px; font-size: 19px; font-weight: 700; color: #FFFFFF; line-height: 1.35; }
+.host .role { font-weight: 400; color: #F7EFE6; }
+.li { display: inline-flex; align-items: center; gap: 10px; margin-top: 10px; font-size: 17px; font-weight: 600; color: #FFFFFF; }
+.li .in { width: 26px; height: 26px; border-radius: 5px; background: #FFFFFF; color: #7A5536; font-size: 17px; font-weight: 800; display: flex; align-items: center; justify-content: center; font-family: Arial, sans-serif; letter-spacing: -0.5px; }
+.qrbox { background: #FFFFFF; border-radius: 20px; padding: 20px 20px 14px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.qrbox img { width: 210px; height: 210px; display: block; }
+.qrbox .url { font-size: 16px; font-weight: 700; color: #7A5536; white-space: nowrap; }
+
+/* Live page. Wide screens: the flyer scaled to fit the window. Narrow screens: stacked layout. */
+body { min-height: 100vh; }
+.stage { display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+.page { zoom: var(--z, 1); }
+a.chip, a.where, a.qrbox, a.li, .tagp-link { transition: transform .15s ease, box-shadow .15s ease; }
+a.where:hover, a.qrbox:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(49,55,61,.18); }
+.tagp-link:hover { background: rgba(210,183,156,.18); }
+.li:hover { text-decoration: underline; }
+a.agenda { cursor: pointer; }
+a.agenda:hover { background: #E3CBB0; }
+@keyframes tap { 0%,60%,100% { transform: translate(0,0); } 70% { transform: translate(-3px,-3px) scale(.92); } }
+@keyframes ring { 0%,65% { opacity: 0; transform: scale(.4); } 75% { opacity: 1; } 100% { opacity: 0; transform: scale(1.8); } }
+.agenda .cursor { animation: tap 2.4s ease-in-out infinite; }
+.agenda .ripple { animation: ring 2.4s ease-out infinite; }
+@media (prefers-reduced-motion: reduce) { .agenda .cursor, .agenda .ripple { animation: none; } }
+@media (max-width: 1099px) {
+  .page { zoom: 1; width: auto; height: auto; padding: 24px 20px 40px; display: block; }
+  .brandrow { gap: 14px; }
+  .logos { gap: 14px; } .mslogo { height: 28px; } .jpm { height: 27.4px; margin-top: 4.5px; } .sep { height: 28px; }
+  .pill-date { margin-left: 0; font-size: 17px; padding: 10px 18px; }
+  .signals { margin-top: 20px; gap: 10px; } .sig { font-size: 16px; padding: 10px 16px; }
+  .kicker { font-size: 14px; letter-spacing: 3px; margin-top: 24px; }
+  h1 { font-size: clamp(44px, 11vw, 72px); letter-spacing: -1.5px; }
+  .lede { font-size: 18px; }
+  .chips { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .chip { font-size: 16px; padding: 7px 14px 7px 7px; } .chip img, .chip .ic { width: 30px; height: 30px; }
+  .where { grid-template-columns: 56px minmax(0, 1fr); padding: 16px; gap: 14px; margin-top: 8px; }
+  .pin { width: 56px; height: 56px; } .where .v { font-size: 21px; } .where .addr { font-size: 16px; }
+  .maps { grid-column: 1 / -1; justify-self: start; font-size: 13px; }
+  .who { grid-template-columns: 1fr; gap: 16px; }
+  .map, .star { display: none; } .who p.t { font-size: 17px; }
+  .right { margin-top: 28px; gap: 18px; }
+  .glance::after { display: none; }
+  .stage { display: block; min-height: 0; }
+  .glance { padding: 26px 22px 18px; } .glance h2 { font-size: 32px; }
+  .slot { grid-template-columns: 1fr auto; gap: 6px 12px; }
+  .slot .time { grid-column: 1 / -1; font-size: 20px; } .slot .name { font-size: 20px; } .slot .desc { font-size: 15px; }
+  .slot .tagp { font-size: 11px; padding: 7px 10px; }
+  .cta { grid-template-columns: 1fr; padding: 26px 22px; gap: 22px; } .cta h3 { font-size: 32px; } .cta p { font-size: 17px; }
+  .qrbox { justify-self: start; } .qrbox img { width: 180px; height: 180px; }
+}
+@media (max-width: 420px) { .chips { grid-template-columns: 1fr; } }
+</style>
+
+<script>
+(function () {
+  function fit() {
+    var w = window.innerWidth, h = window.innerHeight;
+    var z = w >= 1100 ? Math.min(w / 1920, Math.max(h, 620) / 1080) : 1;
+    document.documentElement.style.setProperty('--z', z.toFixed(4));
+  }
+  fit(); window.addEventListener('resize', fit);
+})();
+</script>
+
+</head>
+<body>
+<div class="stage"><div class="page">
+<svg class="map" style="left:456px;top:739px;width:682px;height:645px" viewBox="0 0 1100 1040" aria-hidden="true"><path d="M318.2,0.085L377.43,1.495L426.794,2.445L469.11,2.964L519.611,3.313L554.313,3.382L554.313,192.709L560.078,191.115L570.765,203.083L577.709,209.601L586.378,210.831L588.096,206.72L593.005,206.867L599.378,210.774L602.843,210.421L603.955,202.708L609.179,207.452L613.803,207.841L612.66,209.692L617.892,214.347L619.423,226.063L624.63,225.772L625.222,227.442L628.687,226.493L631.302,227.727L635.913,225.424L641.448,229.225L646.39,231.185L650.156,231.397L653.945,233.533L660.031,233.798L663.468,230.657L669.573,232.507L676.633,240.453L682.399,238.194L683.215,234.497L686.351,231.101L691.889,233.362L696.233,233.294L702.056,235.042L706.912,231.024L708.143,235.19L705.875,238.161L708.905,245.731L714.432,246.555L718.181,245.314L720.242,246.951L718.304,252.012L719.753,251.901L718.693,257.365L721.311,257.567L726.012,260.325L729.483,259.504L737.748,251.633L741.129,246.705L743.734,246.399L749.321,249.796L748.526,253.248L751.765,255.271L756.359,252.906L759.878,254.417L759.709,259.698L761.22,262.176L767.041,262.458L770.107,257.024L772.706,256.374L776.52,257.871L777.014,254.341L779.876,252.678L782.548,254.955L783.271,260.465L780.429,263.05L784.118,270.829L787.348,271.918L790.479,269.239L789.466,263.906L793.194,261.964L789.905,258.533L793.724,260.023L798.241,255.127L797.204,249.04L798.979,250.248L802.978,247.876L804.454,248.756L806.419,256.659L809.092,258.677L810.756,255.865L814.564,256.927L815.829,260.409L821.035,259.501L823.142,252.233L830.439,253.351L827.104,258.312L831.828,260.68L835.013,260.245L837.488,264.942L843.575,264.244L848.734,270.694L849.085,272.525L852.567,272.158L854.376,265.312L859.952,266.715L863.982,265.403L866.044,257.792L870.133,258.318L869.784,256.655L874.178,257.588L882.801,254.845L882.998,252.324L891.608,257.114L894.122,254.421L897.925,255.03L897.49,251.276L903.304,251.302L910.095,246.676L913.005,246.81L915.242,251.832L921.312,250.998L921.364,252.253L931.245,252.176L934.993,251.43L938.07,248.617L939.855,242.84L947.786,244.841L954.774,251.654L961.166,251.533L963.42,256.291L969.821,262.533L973.327,262.788L977.622,261.245L983.168,267.602L988.107,267.28L988.491,269.189L993.09,267.875L998.917,273.706L1001.431,271.485L1003.724,270.699L1003.951,275.214L1007.257,277.143L1009.851,276.509L1009.422,279.548L1012.372,280.152L1013.711,277.82L1016.117,279.205L1016.865,276.736L1023.095,278.675L1026.094,274.661L1029.661,275.897L1031.25,278.328L1032.902,276.479L1037.658,278.068L1037.658,278.068L1037.998,278.971L1040.744,329.785L1046.144,429.704L1048.566,430.578L1052.151,436.414L1057.626,438.71L1060.678,445.495L1065.383,449.84L1064.948,452.713L1067.585,457.257L1065.703,460.881L1066.805,464.589L1064.856,467.044L1066.878,471.204L1069.705,473.726L1073.6,474.008L1074.658,476.88L1073.001,479.236L1077.339,482.006L1077.194,484.695L1079.648,485.811L1080.777,489.852L1079.242,494.38L1083.046,498.1L1084.825,497.829L1087.162,507.162L1092.775,505.829L1091.483,514.451L1094.025,516.899L1094.887,521.373L1091.103,523.354L1090.965,526.128L1094.824,530.51L1092.238,532.505L1091.525,535.731L1093.031,540.921L1090.494,543.834L1088.102,549.252L1087.554,555.4L1084.073,557.696L1083.798,563.409L1079.736,566.155L1079.024,569.546L1081.242,571.431L1083.18,578.945L1079.51,583.428L1078.054,589.711L1083.121,593.78L1083.675,598.189L1082.353,601.533L1085.445,607.976L1082.156,614.03L1084.965,615.462L1081.884,619.911L1077.837,623.408L1076.086,630.043L1072.498,636.445L1067.559,640.489L1067.068,642.611L1069.933,644.967L1075.523,652.534L1075.588,653.704L1061.623,654.222L1050.579,658.168L1012.588,677.539L1004.32,683.051L1001.493,687.711L996.899,687.343L1003.311,681.089L1005.858,677.028L1009.815,676.92L1012.473,675.198L1014.716,671.234L1017.517,672.436L1020.826,671.601L1016.041,667.231L999.854,672.541L997.32,670.483L1002.124,662.714L1003.017,655.969L1002.719,649.784L999.061,649.541L997.454,647.691L992.416,650.358L989.544,653.927L988.525,658.163L984.066,660.38L982.069,656.618L976.778,660.629L976.304,663.582L979.158,666.133L976.31,670.45L979.557,674.911L985.702,676.053L984.085,680.651L987.509,682.169L988.419,688.662L988.07,694.291L985.752,696.996L982.972,696.285L977.451,702.485L970.985,708.22L969.974,706.087L966.039,706.931L965.751,714.316L967.678,716.41L971.484,712.555L979.173,706.764L980.015,705.134L989.389,696.408L993.869,694.272L993.692,690.51L1001.669,691.389L995.819,696.778L977.505,710.442L970.437,716.54L969.308,718.684L959.864,726.721L948.138,739.202L943.575,740.062L922.931,753.126L912.457,760.233L896.469,768.284L878.062,778.317L867.854,785.951L863.971,789.599L859.555,795.943L843.519,805.748L836.291,811.665L822.161,825.064L812.603,837.314L809.387,844.358L805.185,849.416L795.434,868.195L788.393,884.889L785.231,895.616L782.502,911.785L782.094,920.855L782.611,929.484L785.523,946.616L790.327,963.874L794.367,975.023L799.875,994.114L803.895,1015.85L801.589,1011.961L799.702,999.661L795.531,983.894L791.763,971.226L784.204,970.066L789.793,967.664L786.803,960.77L784.749,953.517L781.757,946.203L780.609,937.335L780.649,925.755L780.096,915.533L782.972,892.316L787.581,877.11L793.17,864.563L797.363,858.588L800.274,851.22L802.675,848.224L801.953,844.303L805.786,836.994L811.266,833.663L813.945,829.818L819.211,819.029L827.713,813.927L830.052,809.418L834.98,809.106L845.501,799.989L852.457,795.667L859.784,793.506L858.437,789.946L861.128,787.429L858.316,786.179L853.503,789.768L847.44,792.891L844.157,796.343L838.934,796.921L836.987,793.627L836.837,788.605L831.269,787.764L829.499,790.413L829.703,797.445L828.224,799.583L830.172,802.962L829.027,806.012L822.995,810.877L817.894,816.132L815.428,816.284L809.806,813.924L808.784,810.348L799.048,815.716L793.944,821.46L800.475,823.137L807.759,818.168L810.395,824.299L808.285,826.284L797.023,845.269L793.313,845.53L791.341,840.969L784.864,841.967L783.59,840.489L773.712,841.644L770.286,840.716L768.502,843.942L772.277,846.538L776.922,846.514L780.293,845.01L779.182,850.401L781.445,854.371L786.162,857.107L791.467,858.486L785.875,870.863L782.21,886.464L778.689,895.436L772.517,897.843L770.39,900.156L766.932,898.724L771.25,896.866L772.071,891.899L769.577,891.704L767.769,894.344L758.881,900.828L760.184,903.484L767.687,904.662L775.4,901.3L777.886,901.074L776.555,910.835L777.498,911.148L776.644,928.114L775.169,945.517L773.924,945.797L777.498,965.019L780.133,970.414L780.612,977.455L783.439,977.472L791.098,995.341L792.73,997.736L789.996,1001.75L791.324,1004.574L791.137,1009.786L793.805,1015.769L800.13,1016.535L800.519,1019.465L804.263,1017.857L805.169,1028.504L797.898,1028.102L793.814,1028.875L793.853,1030.471L787.251,1031.64L785.555,1040L779.217,1039.224L776.929,1035.916L772.188,1035.771L770.191,1031.194L766.712,1030.935L760.857,1022.828L751.063,1022.024L747.54,1019.322L742.196,1020.183L739.964,1018.882L732.742,1020.446L731.453,1018.958L727.358,1019.116L726.456,1021.568L723.258,1019.02L716.974,1020.303L714.422,1018.498L712.561,1020.377L708.122,1018.768L705.561,1016.289L706.474,1014.175L701.432,1014.168L700.431,1010.488L695.709,1010.642L689.009,1004.44L686.189,1005.402L678.27,1001.476L672.315,1003.398L668.19,1000.508L663.406,994.77L660.255,994.134L659.596,991.37L657.071,990.39L651.428,991.708L644.791,987.827L641.024,988.113L638.496,986.456L634.74,988.083L631.883,984.413L633.732,980.201L630.556,975.526L627.097,974.462L626.094,966.245L624.188,962.734L623.201,956.112L620.681,954.033L620.34,949.924L618.114,944.569L612.775,940.996L613.385,938.392L609.309,936.235L607.105,933.143L608.657,931.457L605.201,927.618L602.389,927.045L602.055,922.686L603.914,920.076L602.95,914.546L604.184,912.108L602.901,904.903L597.908,902.831L598.205,899.727L594.466,898.821L597.256,896.294L598.778,889.077L597.833,886.483L599.053,881.447L595.011,880.627L596.536,874.25L592.791,869.404L590.623,870.586L588.437,866.739L585.65,868.257L582.848,864.997L579.748,865.509L574.149,857.979L571.358,857.063L570.423,853.88L567.946,854.638L564.844,851.458L564.84,847.268L562.671,845.092L563.596,841.655L559.571,837.637L560.187,833.698L554.932,832.36L552.77,825.574L549.682,823.646L547.216,817.78L536.423,813.326L535.198,808.885L533.039,809.048L529.044,804.096L529.668,800.915L524.458,792.524L525.393,788.591L522.635,785.316L525.41,782.897L521.724,781.963L518.971,778.018L520.213,774.757L515.921,772.395L516.239,769.633L511.644,767.269L510.436,762.994L511.066,759.564L508.622,757.375L507.426,751.257L505.588,751.164L502.87,743.783L500.421,743.685L498.607,739.74L498.95,733.38L496.863,724.494L491.389,720.609L488.358,717.24L489.282,716.074L486.577,710.112L479.587,706.628L478.997,704.112L473.846,700.219L468.379,698.078L464.485,691.011L464.502,689.254L456.605,687.417L454.818,683.716L447.827,683.053L448.793,678.294L448.247,672.848L446.732,672.413L444.843,677.998L443.046,675.717L443.706,671.289L438.569,668.968L434.735,659.882L432.303,660.185L429.608,657.471L425.634,659.51L423.562,655.799L421.103,658.023L409.859,658.944L404.136,656.259L402.305,656.899L397.785,654.983L391.091,656.04L387.487,653.968L382.32,654.46L381.073,656.278L373.219,654.371L369.966,650.123L366.02,650.295L360.026,646.825L355.751,648.241L352.519,657.462L342.24,655.643L339.439,658.676L337.336,657.707L330.597,660.226L328.493,659.338L325.954,663.796L326.515,665.735L322.484,668.984L322.38,673.167L320.253,673.114L319.521,678.034L316.112,680.459L316.346,683.228L314.092,688.026L314.589,692.392L312.963,696.368L309.906,696.708L308.834,702.708L307.228,705.763L310.23,707.684L308.621,710.823L303.044,713.858L300.01,713.106L297.72,718.654L292.428,722.108L290.205,725.061L288.784,732.055L284.483,732.603L279.321,731.197L274.706,731.982L270.541,728.005L262.35,725.744L254.394,716.198L247.157,713.2L244.083,713.769L237.475,710.366L232.205,703.737L228.311,701.593L216.486,699.416L211.39,696.885L205.791,691.57L202.479,690.441L196.953,683.448L197.03,681.441L192.923,677.347L186.561,676.513L183.003,674.111L181.596,671.208L172.748,664.318L170.163,660.611L168.419,651.327L164.976,646.494L163.066,641.389L159.352,635.956L159.561,631.024L157.646,626.17L159.716,620.228L159.002,615.676L159.801,611.105L157.931,605.331L154.72,602.681L153.974,598.965L150.197,595.535L150.005,593.015L146.213,590.001L146.937,587.27L143.679,572.305L141.724,568.868L138.133,568.372L135.173,560.619L130.669,560.413L126.721,554.704L123.159,553.701L122.353,551.654L117.988,548.601L114.374,548.764L112.387,546.324L103.253,542.616L103.413,539.357L90.729,528.845L87.294,519.71L83.865,516.436L78.599,513.987L76.054,511.091L73.375,510.783L72.935,507.745L66.242,498.513L60.435,495.27L59.486,490.695L55.46,487.796L49.236,486.869L39.178,479.774L36.321,472.24L33.461,470.067L32.002,464.286L28.568,456.632L26.094,453.054L20.641,449.553L17.285,450.948L14.224,447.332L12.88,444.906L8.237,442.953L8.648,441.05L5.81,438.785L5.113,435.558L7.276,434.18L8.079,425.764L106.041,431.117L180.062,434.544L247.002,437.049L301.22,438.633L304.036,337.268L305.211,316.035L305.556,303.569L307.105,268.69L308.222,249.288L311.729,122.144L313.017,85.766L314.888,17.891L315.098,0Z" fill="rgba(203,184,160,0.42)" stroke="rgba(147,104,69,0.35)" stroke-width="2"/></svg><div class="star" style="left:960px;top:959px" aria-hidden="true"><svg width="50" height="50" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z" fill="#B77A45"/></svg><span>PLANO</span></div>
+<div class="left">
+  <div class="brandrow">
+    <div class="logos">
+      <img class="mslogo" src="assets/microsoft-logo.png" alt="Microsoft">
+      <span class="sep"></span>
+      <img class="jpm" src="assets/jpmorgan-logo.png" alt="J.P. Morgan">
+    </div>
+    <span class="pill-date"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#936845" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>[NEXT VISIT DATE]</span>
+  </div>
+
+  <div class="signals">
+    <span class="sig sig-dark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D2B79C" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>White Glove Sessions</span>
+    <span class="sig sig-bronze"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M10.5 8.5l3.5 2-3.5 2z"/></svg>New Feature Demos</span>
+    <span class="sig sig-line"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#936845" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/></svg>Help With Your Work</span>
+  </div>
+
+  <p class="kicker">Microsoft AI Day @ JPMC</p>
+  <h1>Bring your work.<br><span class="b">Leave with AI.</span></h1>
+  <p class="lede">A full day with Microsoft at the JPMorgan Chase Plano office: executive briefings, the newest Copilot and Cowork features live, and hands-on help with your work.</p>
+
+  <div class="explore">
+    <p class="eyebrow">What you’ll explore</p>
+    <div class="chips">
+      <span class="chip"><img src="assets/m365-copilot.png" alt="">Microsoft 365 Copilot</span>
+      <span class="chip"><img src="assets/copilot-cowork.png" alt="">Copilot Cowork</span>
+      <span class="chip"><span class="ic" style="background:linear-gradient(135deg,#F46B4A,#D9365E)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4v16h16"/><path d="M7 15l4-4 3 3 5-6"/></svg></span>Cost Corner</span>
+      <span class="chip"><img src="assets/agent-365.png" alt="">Agent 365</span>
+      <span class="chip"><span class="ic" style="background:linear-gradient(135deg,#3B5BFF,#7A3CF0)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 7l-5 5 5 5M15 7l5 5-5 5"/></svg></span>Copilot Code</span>
+      <span class="chip"><span class="ic" style="background:linear-gradient(135deg,#1C8CF0,#1A5FD6)"><img src="assets/autopilot-glyph.png" alt="" style="width:22px;height:22px"></span>Autopilot</span>
+    </div>
+  </div>
+
+  <a class="where" href="https://www.bing.com/maps?q=JPMorgan+Chase+%26+Co.&amp;ss=ypid.YN948989C5C7B63F84&amp;name=JPMorgan+Chase+%26+Co.&amp;cp=33.086997985839844%7e-96.82804107666016&amp;ppois=33.086997985839844_-96.82804107666016_JPMorgan+Chase+%26+Co." target="_blank" rel="noopener">
+    <span class="pin"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.6"/></svg></span>
+    <span>
+      <p class="k">In person at the JPMorgan office</p>
+      <p class="v">JPMorgan Chase · Plano, TX</p>
+      <p class="addr">8181 Communications Pkwy, Plano, TX 75024 · [ROOM]</p>
+    </span>
+    <span class="maps">Open in Maps</span>
+  </a>
+
+  <div class="who">
+    <div>
+      <p class="eyebrow">Who should attend</p>
+      <p class="t">Anyone at JPMC using Copilot or Cowork, from analysts to MDs.</p>
+    </div>
+    <div>
+      <p class="eyebrow">What to bring</p>
+      <p class="t">Your laptop, your questions and the task you’d most like off your plate.</p>
+    </div>
+  </div>
+</div>
+
+<div class="right">
+  <div class="glance">
+    <p class="eyebrow">The day at a glance</p>
+    <h2>Three ways in,<br>one day on site</h2>
+    <div class="slot">
+      <div class="time">9:00–12:00</div>
+      <div><div class="name">White Glove Session</div><div class="desc">Private 60-minute 1:1 for executives</div></div>
+      <span class="tagp">By invitation</span>
+    </div>
+    <div class="slot">
+      <div class="time">1:00–2:30</div>
+      <div><div class="name">Copilot Pulse</div><div class="desc">New features live, plus Cost Corner</div>
+        <a class="agenda" href="agenda.html" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2A2F34" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>Review the agenda for this week<span class="ripple"></span><svg class="cursor" viewBox="0 0 32 32" aria-hidden="true"><path d="M7 3.5l17.5 13.2-7.6 1.1 4.6 8.9-4 2.1-4.6-9-5.9 5.1z" fill="#FFFFFF" stroke="#31373D" stroke-width="1.8" stroke-linejoin="round"/></svg></a></div>
+      <a class="tagp tagp-link" href="https://aka.ms/Copilot-Clinics-JPMC">Reserve a seat</a>
+    </div>
+    <div class="slot">
+      <div class="time">3:00–5:00</div>
+      <div><div class="name">Copilot Clinic</div><div class="desc">15-minute consults on your problem</div></div>
+      <a class="tagp tagp-link" href="https://aka.ms/Copilot-Clinics-JPMC">Book a slot</a>
+    </div>
+  </div>
+
+  <div class="cta">
+    <div>
+      <p class="eyebrow">Book your seat or slot</p>
+      <h3>We fix it together</h3>
+      <p>Bring your laptop and your problem.</p>
+      <div class="host">Hosted by Danny Dias<br><span class="role">Principal AI Solutions Engineer, Microsoft</span></div>
+      <a class="li" href="https://www.linkedin.com/in/danny-dias-7a128512/" target="_blank" rel="noopener"><span class="in">in</span>linkedin.com/in/danny-dias-7a128512</a>
+    </div>
+    <a class="qrbox" href="https://aka.ms/Copilot-Clinics-JPMC" target="_blank" rel="noopener">
+      <img src="assets/qr.svg" alt="QR code for aka.ms/Copilot-Clinics-JPMC">
+      <span class="url">aka.ms/Copilot-Clinics-JPMC</span>
+    </a>
+  </div>
+</div>
+</div></div>
+</body>
+</html>

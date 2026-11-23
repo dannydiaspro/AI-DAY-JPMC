@@ -1,0 +1,36 @@
+{
+  "eyebrow": "Agenda · Microsoft AI Day @ JPMC",
+  "title": "How the day runs",
+  "dateLabel": "[NEXT VISIT DATE]",
+  "date": "",
+  "location": "JPMorgan Chase · 8181 Communications Pkwy, Plano, TX 75024 · [ROOM]",
+  "updated": "",
+  "sections": [
+    {
+      "title": "The full day",
+      "note": "Times are Central Time.",
+      "rows": [
+        { "type": "highlight", "start": "09:00", "end": "12:00", "label": "White Glove Sessions · By invitation", "title": "Executive 1:1 briefings", "subtitle": "Three private 60-minute sessions, scheduled through your AI Champion’s office", "details": "", "link": { "text": "", "url": "" } },
+        { "type": "break", "start": "12:00", "end": "13:00", "label": "", "title": "Lunch break", "subtitle": "", "details": "", "link": { "text": "", "url": "" } },
+        { "type": "highlight", "start": "13:00", "end": "14:30", "label": "Copilot Pulse", "title": "What’s new in Copilot and Cowork, live", "subtitle": "See the full breakdown below", "details": "", "link": { "text": "Reserve a seat", "url": "https://aka.ms/Copilot-Clinics-JPMC" } },
+        { "type": "break", "start": "14:30", "end": "15:00", "label": "", "title": "Break", "subtitle": "", "details": "", "link": { "text": "", "url": "" } },
+        { "type": "split", "start": "15:00", "end": "17:00", "label": "", "title": "", "subtitle": "", "details": "", "link": { "text": "", "url": "" },
+          "cards": [
+            { "label": "Copilot Clinic · Booked", "title": "15-minute consults on your real work", "link": { "text": "Book a slot", "url": "https://aka.ms/Copilot-Clinics-JPMC" } },
+            { "label": "Copilot Clinic · Walk-ins", "title": "Open time between booked slots, first come, first served", "link": { "text": "", "url": "" } }
+          ] }
+      ]
+    },
+    {
+      "title": "Copilot Pulse · This week",
+      "note": "The Pulse topics change every visit.",
+      "rows": [
+        { "type": "normal", "start": "13:00", "end": "13:10", "label": "", "title": "Welcome and what changed since the last visit", "subtitle": "Danny Dias, Microsoft", "details": "", "link": { "text": "", "url": "" } },
+        { "type": "normal", "start": "13:10", "end": "13:40", "label": "", "title": "Live demo: [FEATURE 1]", "subtitle": "[One line on why it matters]", "details": "[What you’ll see, step by step]", "link": { "text": "", "url": "" } },
+        { "type": "normal", "start": "13:40", "end": "14:10", "label": "", "title": "Live demo: [FEATURE 2]", "subtitle": "[One line on why it matters]", "details": "[What you’ll see, step by step]", "link": { "text": "", "url": "" } },
+        { "type": "highlight", "start": "14:10", "end": "14:25", "label": "Cost Corner", "title": "What AI really costs", "subtitle": "Credits, usage and the spending controls that keep costs predictable", "details": "", "link": { "text": "", "url": "" } },
+        { "type": "normal", "start": "14:25", "end": "14:30", "label": "", "title": "Q&A and next steps", "subtitle": "", "details": "", "link": { "text": "", "url": "" } }
+      ]
+    }
+  ]
+}
