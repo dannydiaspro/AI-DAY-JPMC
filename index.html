@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Microsoft AI Day @ JPMC · Plano, TX</title>
+<meta name="description" content="Microsoft AI Day at the JPMorgan Chase Plano office: White Glove Sessions, Copilot Pulse feature demos and Copilot Clinic hands-on help.">
+<style>
+@font-face { font-family: 'Selawik'; src: url(assets/Selawik-Regular.ttf); font-weight: 400; }
+@font-face { font-family: 'Selawik'; src: url(assets/Selawik-Bold.ttf); font-weight: 600 800; }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { font-family: 'Segoe UI', 'Selawik', Arial, sans-serif; color: #31373D; background: #F7F6F3; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+a { color: inherit; text-decoration: none; }
+.page { width: 1920px; height: 1080px; padding: 60px 72px; display: grid; grid-template-columns: minmax(0, 1fr) 760px; gap: 64px; background: #F7F6F3; }
+
+.left { display: flex; flex-direction: column; }
+.brandrow { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+.logos { display: flex; align-items: center; gap: 26px; }
+.mslogo { height: 44px; display: block; }
+.sep { width: 1.5px; height: 44px; background: #B9AE9F; }
+.jpm { height: 40px; display: block; }
+.pill-date { display: inline-flex; align-items: center; gap: 12px; margin-left: 12px; background: #FFFFFF; border: 1.5px solid #CDBBA7; color: #31373D; font-size: 25px; font-weight: 700; padding: 14px 28px; border-radius: 999px; white-space: nowrap; }
+
+.signals { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+.sig { display: inline-flex; align-items: center; gap: 12px; border-radius: 999px; font-size: 22px; font-weight: 700; padding: 14px 24px; white-space: nowrap; }
+.sig-dark { background: #31373D; color: #FFFFFF; }
+.sig-bronze { background: #936845; color: #FFFFFF; }
+.sig-line { background: #FFFFFF; border: 1.5px solid #CDBBA7; color: #31373D; }
+.kicker { margin: 28px 0 0 0; font-size: 20px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: #936845; }
+h1 { margin: 8px 0 0 0; font-size: 94px; line-height: 1.0; font-weight: 700; letter-spacing: -3px; color: #31373D; }
+h1 .b { color: #936845; }
+.lede { margin: 18px 0 0 0; font-size: 25px; line-height: 1.5; color: #5A5F66; max-width: 960px; }
+
+.eyebrow { font-size: 17px; font-weight: 700; letter-spacing: 3.5px; text-transform: uppercase; color: #936845; margin: 0 0 8px 0; }
+.explore { margin-top: 22px; margin-bottom: 22px; }
+.chips { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.chip { display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.94); border: 2px solid #C2AC94; border-radius: 999px; padding: 9px 20px 9px 10px; font-size: 22px; color: #31373D; box-shadow: 0 3px 10px rgba(49,55,61,0.08); }
+.chip img, .chip .ic { width: 36px; height: 36px; display: block; flex: none; }
+.chip .ic { border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+
+.where { margin-top: auto; display: grid; grid-template-columns: 72px minmax(0, 1fr) auto; align-items: center; gap: 22px; background: #31373D; color: #FAF8F4; border-radius: 22px; padding: 20px 26px 20px 20px; }
+.pin { width: 72px; height: 72px; border-radius: 18px; background: #936845; display: flex; align-items: center; justify-content: center; }
+.where .k { font-size: 16px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #D2B79C; margin: 0; }
+.where .v { font-size: 28px; font-weight: 700; margin: 2px 0 0 0; color: #FFFFFF; }
+.where .addr { font-size: 22px; margin: 2px 0 0 0; color: #D9DCE0; }
+.maps { font-size: 16px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #F1E7DB; border: 1.5px solid #D2B79C; border-radius: 999px; padding: 11px 18px; white-space: nowrap; }
+
+.who { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 22px; }
+.who p.t { margin: 0; font-size: 22px; line-height: 1.45; color: #4A4F55; }
+
+.right { display: flex; flex-direction: column; gap: 24px; }
+.glance { background: #31373D; color: #FAF8F4; border-radius: 28px; padding: 38px 44px 30px; position: relative; overflow: hidden; }
+.glance::after { content: ""; position: absolute; right: -110px; top: -110px; width: 300px; height: 300px; border-radius: 50%; border: 2px solid rgba(147,104,69,0.7); }
+.glance .eyebrow { color: #D2B79C; }
+.glance h2 { margin: 0 0 18px 0; font-size: 48px; line-height: 1.05; font-weight: 700; letter-spacing: -1px; color: #FFFFFF; }
+.slot { display: grid; grid-template-columns: 150px minmax(0, 1fr) auto; align-items: center; gap: 20px; padding: 18px 0; border-top: 1px solid rgba(250,248,244,0.16); }
+.slot .time { font-size: 28px; font-weight: 700; color: #D2B79C; }
+.slot .name { font-size: 26px; font-weight: 700; color: #FFFFFF; }
+.slot .desc { font-size: 18px; color: #C9CDD2; margin-top: 2px; line-height: 1.35; }
+.slot .tagp { font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 9px 14px; border-radius: 999px; border: 1.5px solid #D2B79C; color: #F1E7DB; white-space: nowrap; }
+
+.cta { flex: 1; background: linear-gradient(135deg, #936845 0%, #7A5536 100%); color: #FFFFFF; border-radius: 28px; padding: 32px 36px 32px 40px; display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 30px; align-items: center; }
+.cta .eyebrow { color: #F1E7DB; }
+.cta h3 { margin: 0; font-size: 46px; line-height: 1.05; font-weight: 700; letter-spacing: -1px; }
+.cta p { margin: 12px 0 0 0; font-size: 21px; line-height: 1.45; color: #F7EFE6; }
+.host { margin-top: 16px; font-size: 19px; font-weight: 700; color: #FFFFFF; line-height: 1.35; }
+.host .role { font-weight: 400; color: #F7EFE6; }
+.li { display: inline-flex; align-items: center; gap: 10px; margin-top: 10px; font-size: 17px; font-weight: 600; color: #FFFFFF; }
+.li .in { width: 26px; height: 26px; border-radius: 5px; background: #FFFFFF; color: #7A5536; font-size: 17px; font-weight: 800; display: flex; align-items: center; justify-content: center; font-family: Arial, sans-serif; letter-spacing: -0.5px; }
+.qrbox { background: #FFFFFF; border-radius: 20px; padding: 20px 20px 14px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.qrbox img { width: 210px; height: 210px; display: block; }
+.qrbox .url { font-size: 16px; font-weight: 700; color: #7A5536; white-space: nowrap; }
+
+/* Live page. Wide screens: the flyer scaled to fit the window. Narrow screens: stacked layout. */
+body { min-height: 100vh; }
+.stage { display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+.page { zoom: var(--z, 1); }
+a.chip, a.where, a.qrbox, a.li, .tagp-link { transition: transform .15s ease, box-shadow .15s ease; }
+a.where:hover, a.qrbox:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(49,55,61,.18); }
+.tagp-link:hover { background: rgba(210,183,156,.18); }
+.li:hover { text-decoration: underline; }
+@media (max-width: 1099px) {
+  .page { zoom: 1; width: auto; height: auto; padding: 24px 20px 40px; display: block; }
+  .brandrow { gap: 14px; }
+  .logos { gap: 14px; } .mslogo { height: 28px; } .jpm { height: 26px; } .sep { height: 28px; }
+  .pill-date { margin-left: 0; font-size: 17px; padding: 10px 18px; }
+  .signals { margin-top: 20px; gap: 10px; } .sig { font-size: 16px; padding: 10px 16px; }
+  .kicker { font-size: 14px; letter-spacing: 3px; margin-top: 24px; }
+  h1 { font-size: clamp(44px, 11vw, 72px); letter-spacing: -1.5px; }
+  .lede { font-size: 18px; }
+  .chips { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .chip { font-size: 16px; padding: 7px 14px 7px 7px; } .chip img, .chip .ic { width: 30px; height: 30px; }
+  .where { grid-template-columns: 56px minmax(0, 1fr); padding: 16px; gap: 14px; margin-top: 8px; }
+  .pin { width: 56px; height: 56px; } .where .v { font-size: 21px; } .where .addr { font-size: 16px; }
+  .maps { grid-column: 1 / -1; justify-self: start; font-size: 13px; }
+  .who { grid-template-columns: 1fr; gap: 16px; } .who p.t { font-size: 17px; }
+  .right { margin-top: 28px; gap: 18px; }
+  .glance::after { display: none; }
+  .stage { display: block; min-height: 0; }
+  .glance { padding: 26px 22px 18px; } .glance h2 { font-size: 32px; }
+  .slot { grid-template-columns: 1fr auto; gap: 6px 12px; }
+  .slot .time { grid-column: 1 / -1; font-size: 20px; } .slot .name { font-size: 20px; } .slot .desc { font-size: 15px; }
+  .slot .tagp { font-size: 11px; padding: 7px 10px; }
+  .cta { grid-template-columns: 1fr; padding: 26px 22px; gap: 22px; } .cta h3 { font-size: 32px; } .cta p { font-size: 17px; }
+  .qrbox { justify-self: start; } .qrbox img { width: 180px; height: 180px; }
+}
+@media (max-width: 420px) { .chips { grid-template-columns: 1fr; } }
+</style>
+
+<script>
+(function () {
+  function fit() {
+    var w = window.innerWidth, h = window.innerHeight;
+    var z = w >= 1100 ? Math.min(w / 1920, Math.max(h, 620) / 1080) : 1;
+    document.documentElement.style.setProperty('--z', z.toFixed(4));
+  }
+  fit(); window.addEventListener('resize', fit);
+})();
+</script>
+
+</head>
+<body>
+<div class="stage"><div class="page">
+<div class="left">
+  <div class="brandrow">
+    <div class="logos">
+      <img class="mslogo" src="assets/microsoft-logo.png" alt="Microsoft">
+      <span class="sep"></span>
+      <img class="jpm" src="assets/jpmorgan-logo.png" alt="J.P. Morgan">
+    </div>
+    <span class="pill-date"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#936845" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>[NEXT VISIT DATE]</span>
+  </div>
+
+  <div class="signals">
+    <span class="sig sig-dark"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D2B79C" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>White Glove Sessions</span>
+    <span class="sig sig-bronze"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M10.5 8.5l3.5 2-3.5 2z"/></svg>New Feature Demos</span>
+    <span class="sig sig-line"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#936845" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/></svg>Help With Your Work</span>
+  </div>
+
+  <p class="kicker">Microsoft AI Day @ JPMC</p>
+  <h1>Bring your work.<br><span class="b">Leave with AI.</span></h1>
+  <p class="lede">A full day with Microsoft at the JPMorgan Chase Plano office: executive briefings, the newest Copilot and Cowork features live, and hands-on help with your work.</p>
+
+  <div class="explore">
+    <p class="eyebrow">What you’ll explore</p>
+    <div class="chips">
+      <span class="chip"><img src="assets/m365-copilot.png" alt="">Microsoft 365 Copilot</span>
+      <span class="chip"><img src="assets/copilot-cowork.png" alt="">Copilot Cowork</span>
+      <span class="chip"><span class="ic" style="background:linear-gradient(135deg,#F46B4A,#D9365E)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4v16h16"/><path d="M7 15l4-4 3 3 5-6"/></svg></span>Cost Corner</span>
+      <span class="chip"><img src="assets/agent-365.png" alt="">Agent 365</span>
+      <span class="chip"><span class="ic" style="background:linear-gradient(135deg,#3B5BFF,#7A3CF0)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 7l-5 5 5 5M15 7l5 5-5 5"/></svg></span>Copilot Code</span>
+      <span class="chip"><span class="ic" style="background:linear-gradient(135deg,#1C8CF0,#1A5FD6)"><img src="assets/autopilot-glyph.png" alt="" style="width:22px;height:22px"></span>Autopilot</span>
+    </div>
+  </div>
+
+  <a class="where" href="https://www.bing.com/maps?q=JPMorgan+Chase+%26+Co.&amp;ss=ypid.YN948989C5C7B63F84&amp;name=JPMorgan+Chase+%26+Co.&amp;cp=33.086997985839844%7e-96.82804107666016&amp;ppois=33.086997985839844_-96.82804107666016_JPMorgan+Chase+%26+Co." target="_blank" rel="noopener">
+    <span class="pin"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.6"/></svg></span>
+    <span>
+      <p class="k">In person at the JPMorgan office</p>
+      <p class="v">JPMorgan Chase · Plano, TX</p>
+      <p class="addr">8181 Communications Pkwy, Plano, TX 75024 · [ROOM]</p>
+    </span>
+    <span class="maps">Open in Maps</span>
+  </a>
+
+  <div class="who">
+    <div>
+      <p class="eyebrow">Who should attend</p>
+      <p class="t">Anyone at JPMC using Copilot or Cowork, from analysts to MDs.</p>
+    </div>
+    <div>
+      <p class="eyebrow">What to bring</p>
+      <p class="t">Your laptop, your questions and the task you’d most like off your plate.</p>
+    </div>
+  </div>
+</div>
+
+<div class="right">
+  <div class="glance">
+    <p class="eyebrow">The day at a glance</p>
+    <h2>Three ways in,<br>one day on site</h2>
+    <div class="slot">
+      <div class="time">9:00–12:00</div>
+      <div><div class="name">White Glove Session</div><div class="desc">Private 60-minute 1:1 for executives</div></div>
+      <span class="tagp">By invitation</span>
+    </div>
+    <div class="slot">
+      <div class="time">1:00–2:30</div>
+      <div><div class="name">Copilot Pulse</div><div class="desc">New features live, plus Cost Corner</div></div>
+      <a class="tagp tagp-link" href="https://aka.ms/Copilot-Clinics-JPMC">Reserve a seat</a>
+    </div>
+    <div class="slot">
+      <div class="time">3:00–5:00</div>
+      <div><div class="name">Copilot Clinic</div><div class="desc">15-minute consults on your problem</div></div>
+      <a class="tagp tagp-link" href="https://aka.ms/Copilot-Clinics-JPMC">Book a slot</a>
+    </div>
+  </div>
+
+  <div class="cta">
+    <div>
+      <p class="eyebrow">Book your seat or slot</p>
+      <h3>We fix it together</h3>
+      <p>Bring your laptop and your problem. More dates on [CHANNEL NAME].</p>
+      <div class="host">Hosted by Danny Dias<br><span class="role">Principal AI Solutions Engineer, Microsoft</span></div>
+      <a class="li" href="https://www.linkedin.com/in/danny-dias-7a128512/" target="_blank" rel="noopener"><span class="in">in</span>linkedin.com/in/danny-dias-7a128512</a>
+    </div>
+    <a class="qrbox" href="https://aka.ms/Copilot-Clinics-JPMC" target="_blank" rel="noopener">
+      <img src="assets/qr.svg" alt="QR code for aka.ms/Copilot-Clinics-JPMC">
+      <span class="url">aka.ms/Copilot-Clinics-JPMC</span>
+    </a>
+  </div>
+</div>
+</div></div>
+</body>
+</html>
